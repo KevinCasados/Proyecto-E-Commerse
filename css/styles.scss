@@ -1,0 +1,275 @@
+$width: 100%;
+$widthImg: 100px; 
+$widthIcons: 50px;
+$fontFamily: "lexend", Verdana, Geneva, Tahoma, sans-serif; 
+$white: #fff;
+$grey: #333;
+$fontWeightTitles: 600;
+$fontWeightTexts: 300; 
+
+@mixin font ($fontSize, $fontWeight,) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin productsText {
+    font-weight: $fontWeightTexts;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@mixin flexbox {
+    display: flex;
+    justify-content: space-between;   
+}
+
+@mixin aligItems {
+    align-items: center;
+}
+
+@mixin textAlign {
+    text-align: center;
+}
+
+@mixin borderBox {
+    box-sizing: border-box;
+}
+
+@mixin marginAuto {
+    margin: 0 auto;
+}
+
+%boxCenter {
+    @include borderBox;
+    @include aligItems;
+}
+
+body {
+    width: $width;
+    @include font(15px, $fontWeightTexts);
+    color: #1d1d1d;
+    font-family: $fontFamily;
+    margin: 0;
+}
+
+.header {
+    width: $width;
+    padding: 20px $widthIcons;
+    background-color: $grey;
+    @include flexbox;
+    @extend %boxCenter; 
+    
+        .header__logo {
+            width: $widthImg;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .header__logo--icons {
+            width: $widthIcons;
+        }
+}
+
+.banner {
+    width: $width;
+    padding: 60px 0;
+    @include textAlign;
+    background-image: linear-gradient(rgba(5, 7, 12, 0.5),rgba(5, 7, 12, 0.5)), url("../img/banner-adidas.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $white;
+    background-position-y: 60%;
+        
+        .banner__title {
+            width: $width;
+            @include font(30px, $fontWeightTitles);
+            margin: 10px;
+        }
+            
+        .banner__description {
+            width: $width;
+            @include marginAuto;
+            @include font(25px, $fontWeightTexts);
+            opacity: 0.7;
+        }
+}
+
+.products {
+    width: 80%;
+    @include marginAuto;
+    padding: 70px 20px;
+    @include borderBox;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    
+        .products__item {
+            cursor: pointer;
+            text-align: left;
+        }
+        
+        .products__img {
+            width: 99%;
+            margin-bottom: 10px;
+        }
+        
+        .products__title {
+            @include font(17px, $fontWeightTexts);
+            margin: 10px 10px 5px 10px;
+        }
+        
+        .products__category {
+            @include productsText;
+            color: #767677;
+        }
+        
+        .products__price {
+            @include productsText;
+        }
+}
+
+.cart {
+    width: 500px;
+    background-color: $white;
+    padding: 25px;
+    @include borderBox;
+    height: $width;
+    position: fixed;
+    right: $width;
+    top: 100px;
+    box-shadow: -19px 1px 22px -15px rgba(0, 0, 0, .30);
+
+        .cart__title {
+            width: $width;
+            @include textAlign;
+            @include font(20px, $fontWeightTitles);
+            padding: 25px 0;
+            @include borderBox;
+        }
+}
+
+.cart__shopping {
+    border-bottom: 1px solid $grey;
+    @include flexbox;
+    @extend %boxCenter; 
+    padding: 15px ;
+            
+        .cart__img {
+            width: 60px;
+        }
+        
+        .cart__description {
+            @include textAlign;
+        }
+        
+        .cart__price {
+            font-weight: $fontWeightTitles;
+        }
+        
+        .cart__delete {
+            width: 25px;
+            cursor: pointer;
+            padding: 6px 6px 6px 6px;
+        }
+}
+
+@media (max-width:820px) {
+    .header {
+        padding: 15px;
+
+        .header__logo {
+            width: 60px;
+        }
+    
+        .header__logo--icons {
+            width: 30px;
+        }
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        padding: 30px 0px;
+
+        .products__img {
+            width: 205px;
+        }
+    }
+
+    .cart {
+        width: 400px;
+        top: 80px;
+
+        .cart__shopping {
+            @include textAlign;
+        }
+    }
+}
+
+
+@media (max-width: 750px) {
+    .products__item {
+        @include textAlign;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .banner {
+        padding: 30px 0;
+
+        .banner__title {
+            @include font (18px, $fontWeightTitles)
+        }
+    
+        .banner__description {
+            @include font (16px, $fontWeightTexts)
+        }
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        padding: 15px 0px 30px 0px;
+
+        .products__item {
+            @include textAlign;
+            padding-top: 15px;
+        }
+    
+        .products__img {
+            width: $width;
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+    
+        .products__title, 
+        .products__category,
+        .products__price {
+            padding: 0 10px;
+        }
+    }
+
+
+    .cart {
+        width: $width;
+        box-shadow: none;
+
+        .cart__title {
+            padding: 15px 0;
+        }
+    
+        .cart__shopping {
+            flex-direction: column;
+            @include aligItems;
+        }
+    
+        .cart__img {
+            width: $widthImg;
+        }
+    
+        .cart__description,
+        .cart__price {
+            margin: 0;
+        }
+    }  
+}

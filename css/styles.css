@@ -1,0 +1,211 @@
+.cart__shopping, .header {
+  box-sizing: border-box;
+  align-items: center;
+}
+
+body {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  color: #1d1d1d;
+  font-family: "lexend", Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  padding: 20px 50px;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+.header .header__logo {
+  width: 100px;
+  cursor: pointer;
+  display: inline-block;
+}
+.header .header__logo--icons {
+  width: 50px;
+}
+
+.banner {
+  width: 100%;
+  padding: 60px 0;
+  text-align: center;
+  background-image: linear-gradient(rgba(5, 7, 12, 0.5), rgba(5, 7, 12, 0.5)), url("../img/banner-adidas.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  background-position-y: 60%;
+}
+.banner .banner__title {
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 10px;
+}
+.banner .banner__description {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 25px;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.products {
+  width: 80%;
+  margin: 0 auto;
+  padding: 70px 20px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.products .products__item {
+  cursor: pointer;
+  text-align: left;
+}
+.products .products__img {
+  width: 99%;
+  margin-bottom: 10px;
+}
+.products .products__title {
+  font-size: 17px;
+  font-weight: 300;
+  margin: 10px 10px 5px 10px;
+}
+.products .products__category {
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #767677;
+}
+.products .products__price {
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cart {
+  width: 500px;
+  background-color: #fff;
+  padding: 25px;
+  box-sizing: border-box;
+  height: 100%;
+  position: fixed;
+  right: 100%;
+  top: 100px;
+  box-shadow: -19px 1px 22px -15px rgba(0, 0, 0, 0.3);
+}
+.cart .cart__title {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 25px 0;
+  box-sizing: border-box;
+}
+
+.cart__shopping {
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.cart__shopping .cart__img {
+  width: 60px;
+}
+.cart__shopping .cart__description {
+  text-align: center;
+}
+.cart__shopping .cart__price {
+  font-weight: 600;
+}
+.cart__shopping .cart__delete {
+  width: 25px;
+  cursor: pointer;
+  padding: 6px 6px 6px 6px;
+}
+
+@media (max-width: 820px) {
+  .header {
+    padding: 15px;
+  }
+  .header .header__logo {
+    width: 60px;
+  }
+  .header .header__logo--icons {
+    width: 30px;
+  }
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 30px 0px;
+  }
+  .products .products__img {
+    width: 205px;
+  }
+  .cart {
+    width: 400px;
+    top: 80px;
+  }
+  .cart .cart__shopping {
+    text-align: center;
+  }
+}
+@media (max-width: 750px) {
+  .products__item {
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .banner {
+    padding: 30px 0;
+  }
+  .banner .banner__title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .banner .banner__description {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .products {
+    grid-template-columns: 1fr;
+    padding: 15px 0px 30px 0px;
+  }
+  .products .products__item {
+    text-align: center;
+    padding-top: 15px;
+  }
+  .products .products__img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+  .products .products__title,
+  .products .products__category,
+  .products .products__price {
+    padding: 0 10px;
+  }
+  .cart {
+    width: 100%;
+    box-shadow: none;
+  }
+  .cart .cart__title {
+    padding: 15px 0;
+  }
+  .cart .cart__shopping {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cart .cart__img {
+    width: 100px;
+  }
+  .cart .cart__description,
+  .cart .cart__price {
+    margin: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */
