@@ -7,7 +7,7 @@ $grey: #333;
 $fontWeightTitles: 600;
 $fontWeightTexts: 300; 
 
-@mixin font ($fontSize, $fontWeight,) {
+@mixin font ($fontSize, $fontWeight) {
     font-size: $fontSize;
     font-weight: $fontWeight;
 }
